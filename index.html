@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B&R Mountain Lodge - Hotel Booking</title>
+<meta name="description" content="Blossom & Rise Mountain Lodge Hotel Management System — check availability, browse rooms, and manage bookings.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <img class="brand-mark" src="images/logo-nobg.png" alt="B&R Mountain Lodge logo">
+      <span class="brand-name">B&R Mountain Lodge</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Homepage</a>
+      <a href="#rooms" class="nav-link">Rooms</a>
+      <a href="#bookings" class="nav-link">Bookings</a>
+      <a href="#guests" class="nav-link">Guests</a>
+      <a href="#availability" class="nav-link">Availability</a>
+      <a href="#facilities" class="nav-link">Facilities</a>
+      <a href="#recommend" class="nav-link">Room Recommendation</a>
+      <a href="#payments" class="nav-link">Payments</a>
+      <a href="#dashboard" class="nav-link nav-link-muted">Dashboard</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ LAYER 1: INTRODUCTION ============ -->
+<section class="intro" id="home">
+  <div class="intro-inner">
+    <p class="intro-eyebrow">Blossom & Rise Mountain Lodge</p>
+    <h1 class="intro-title">Rise with Hope,<br>Blossom in His Way.</h1>
+    <p class="intro-sub">BLAH BLAH BLAH BLAH ANO PEDE ILAGAY DITO.</p>
+    <div class="intro-actions">
+      <a href="#rooms" class="btn btn-primary">Explore Rooms</a>
+      <a href="#recommend" class="btn btn-secondary">Find Your Room</a>
+    </div>
+  </div>
+  <p class="intro-tagline">La Trinidad, Benguet. Est. 2019.</p>
+  <a href="#slideshow" class="scroll-cue" aria-label="Scroll down">
+    <span></span>
+  </a>
+</section>
+
+<!-- ============ LAYER 2: HERO SLIDESHOW ============ -->
+<section class="slideshow" id="slideshow">
+  <div class="slides" id="slides">
+
+    <div class="slide is-active" style="background-image:url('images/slide-1.jpg')">
+      <div class="slide-scrim"></div>
+      <div class="slide-content">
+        <h2>Tagline #1</h2>
+        <p>BLAHBLAHBLAHBLAH rene baterbonia</p>
+        <a href="#rooms" class="btn btn-outline">View Rooms</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image:url('images/slide-2.jpg')">
+      <div class="slide-scrim"></div>
+      <div class="slide-content">
+        <h2>Tagline #2</h2>
+        <p>BLAHBLAHBLAHBLAH rene baterbonia</p>
+        <a href="#room-types" class="btn btn-outline">See Room Types</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image:url('images/slide-3.jpg')">
+      <div class="slide-scrim"></div>
+      <div class="slide-content">
+        <h2>Tagline #3</h2>
+        <p>BLAHBLAHBLAHBLAH rene baterbonia</p>
+        <a href="#facilities" class="btn btn-outline">Browse Facilities</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image:url('images/slide-4.jpg')">
+      <div class="slide-scrim"></div>
+      <div class="slide-content">
+        <h2>Tagline #4</h2>
+        <p>BLAHBLAHBLAHBLAH rene baterbonia</p>
+        <a href="#recommend" class="btn btn-outline">Get a Recommendation</a>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="slide-arrow slide-arrow-prev" id="slidePrev" aria-label="Previous slide">&#10094;</button>
+  <button class="slide-arrow slide-arrow-next" id="slideNext" aria-label="Next slide">&#10095;</button>
+
+  <div class="slide-dots" id="slideDots"></div>
+</section>
+
+<main>
+
+  <!-- ============ AVAILABILITY ============ -->
+  <section class="section section-cream" id="availability">
+    <div class="section-inner">
+      <p class="section-eyebrow">Plan your stay</p>
+      <h2 class="section-title">Check Room Availability</h2>
+
+      <form class="availability-form" id="availabilityForm">
+        <div class="field">
+          <label for="checkIn">Check-in</label>
+          <input type="date" id="checkIn" name="checkIn" required>
+        </div>
+        <div class="field">
+          <label for="checkOut">Check-out</label>
+          <input type="date" id="checkOut" name="checkOut" required>
+        </div>
+        <div class="field">
+          <label for="guestCount">Guests</label>
+          <select id="guestCount" name="guestCount">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5+ Guests</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="roomCount">Rooms</label>
+          <select id="roomCount" name="roomCount">
+            <option value="1" selected>1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary field-submit">Search</button>
+      </form>
+
+      <div class="availability-results" id="availabilityResults"></div>
+    </div>
+  </section>
+
+  <!-- ============ ROOMS ============ -->
+  <section class="section" id="rooms">
+    <div class="section-inner">
+      <p class="section-eyebrow">Our rooms</p>
+      <h2 class="section-title">Rooms &amp; Rates</h2>
+
+      <div class="filter-bar" id="roomFilterBar">
+        <button class="filter-chip active" data-filter="all">All Rooms</button>
+        <button class="filter-chip" data-filter="Single">Single</button>
+        <button class="filter-chip" data-filter="Double">Double</button>
+        <button class="filter-chip" data-filter="Twin">Twin</button>
+        <button class="filter-chip" data-filter="Deluxe">Deluxe</button>
+        <button class="filter-chip" data-filter="Family">Family</button>
+        <button class="filter-chip" data-filter="Suite">Suite</button>
+      </div>
+
+      <div class="room-grid" id="roomGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ ROOM TYPES ============ -->
+  <section class="section section-midnight" id="room-types">
+    <div class="section-inner">
+      <p class="section-eyebrow section-eyebrow-light">Categories</p>
+      <h2 class="section-title section-title-light">Room Types</h2>
+      <div class="type-grid" id="typeGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FACILITIES ============ -->
+  <section class="section section-cream" id="facilities">
+    <div class="section-inner">
+      <p class="section-eyebrow">In every stay</p>
+      <h2 class="section-title">Room Facilities</h2>
+      <p class="section-lead">Select a room to see exactly which facilities are included.</p>
+
+      <div class="facilities-layout">
+        <div class="facility-grid" id="facilityGrid"></div>
+
+        <aside class="facility-lookup">
+          <label for="facilityRoomSelect">Check a room's facilities</label>
+          <select id="facilityRoomSelect"></select>
+          <div class="facility-lookup-result" id="facilityLookupResult"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROOM RECOMMENDATION ============ -->
+  <section class="section" id="recommend">
+    <div class="section-inner">
+      <p class="section-eyebrow">Not sure what to book?</p>
+      <h2 class="section-title">Find Your Perfect Room</h2>
+      <p class="section-lead">Tell us what you need and we'll match you with the rooms that fit best.</p>
+
+      <div class="recommend-layout">
+        <form class="recommend-form" id="recommendForm">
+          <div class="field">
+            <label for="recGuests">Number of guests</label>
+            <select id="recGuests">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="recBudget">Budget</label>
+            <select id="recBudget">
+              <option value="2000">Under &#8369;2,000</option>
+              <option value="3000" selected>&#8369;2,000 &ndash; &#8369;3,000</option>
+              <option value="5000">&#8369;3,000 &ndash; &#8369;5,000</option>
+              <option value="999999">&#8369;5,000+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="recType">Preferred room type</label>
+            <select id="recType">
+              <option value="Any" selected>Any</option>
+              <option value="Single">Single</option>
+              <option value="Double">Double</option>
+              <option value="Twin">Twin</option>
+              <option value="Deluxe">Deluxe</option>
+              <option value="Family">Family</option>
+              <option value="Suite">Suite</option>
+            </select>
+          </div>
+
+          <fieldset class="field field-checks">
+            <legend>Preferred facilities</legend>
+            <div class="check-grid" id="recFacilityChecks"></div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary field-submit">Recommend a Room</button>
+        </form>
+
+        <div class="recommend-results" id="recommendResults">
+          <p class="recommend-placeholder">Your recommended rooms will appear here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKINGS ============ -->
+  <section class="section section-cream" id="bookings">
+    <div class="section-inner">
+      <p class="section-eyebrow">Reservations</p>
+      <h2 class="section-title">Bookings</h2>
+
+      <div class="tab-bar" id="bookingTabs">
+        <button class="tab active" data-tab="future">Future</button>
+        <button class="tab" data-tab="current">Current</button>
+        <button class="tab" data-tab="archived">Archived</button>
+      </div>
+
+      <div class="booking-grid" id="bookingGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ THIS WEEK'S GUESTS ============ -->
+  <section class="section" id="guests">
+    <div class="section-inner">
+      <p class="section-eyebrow">Front desk</p>
+      <h2 class="section-title">Guests Staying This Week</h2>
+
+      <div class="stat-row" id="weekSummary"></div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="weekGuestsTable">
+          <thead>
+            <tr>
+              <th>Guest</th>
+              <th>Booking</th>
+              <th>Room</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-head">
+          <h3>Guest Directory</h3>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="guestDirectoryTable">
+            <thead>
+              <tr>
+                <th>Guest ID</th>
+                <th>Full name</th>
+                <th>Contact</th>
+                <th>Booking</th>
+                <th>Room</th>
+                <th>Stay</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMERS ============ -->
+  <section class="section section-cream" id="customers">
+    <div class="section-inner">
+      <div class="subsection-head">
+        <p class="section-eyebrow">Accounts</p>
+        <h2 class="section-title">Customers</h2>
+        <button class="btn btn-primary btn-small" id="addCustomerBtn">Add Customer</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table" id="customerTable">
+          <thead>
+            <tr>
+              <th>Customer ID</th>
+              <th>Full name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Bookings</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAYMENTS ============ -->
+  <section class="section" id="payments">
+    <div class="section-inner">
+      <p class="section-eyebrow">Billing</p>
+      <h2 class="section-title">Payments</h2>
+
+      <div class="table-wrap">
+        <table class="data-table" id="paymentTable">
+          <thead>
+            <tr>
+              <th>Payment ID</th>
+              <th>Booking</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Method</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD ============ -->
+  <section class="section section-midnight" id="dashboard">
+    <div class="section-inner">
+      <p class="section-eyebrow section-eyebrow-light">Admin overview</p>
+      <h2 class="section-title section-title-light">Dashboard</h2>
+
+      <div class="dash-cards" id="dashCards"></div>
+
+      <div class="dash-columns">
+        <div class="dash-col">
+          <h3>Recent Bookings</h3>
+          <div class="dash-list" id="dashRecentBookings"></div>
+        </div>
+        <div class="dash-col">
+          <h3>Today's Check-ins</h3>
+          <div class="dash-list" id="dashCheckins"></div>
+        </div>
+        <div class="dash-col">
+          <h3>Today's Check-outs</h3>
+          <div class="dash-list" id="dashCheckouts"></div>
+        </div>
+      </div>
+
+      <div class="occupancy">
+        <h3>Room Occupancy</h3>
+        <div class="occupancy-bar">
+          <div class="occupancy-fill" id="occupancyFill"></div>
+        </div>
+        <p class="occupancy-legend" id="occupancyLegend"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p class="brand-name">B&R Mountain Lodge</p>
+      <p>Where comfort meets nature.</p>
+    </div>
+    <p class="footer-note">Frontend prototype — data shown is sample data only. Ready to connect to a C++ API and SQL database.</p>
+  </div>
+</footer>
+
+<!-- ============ MODALS ============ -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="roomDetailModal">
+    <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+    <div id="roomDetailContent"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="bookingModalBackdrop">
+  <div class="modal" id="bookingModal">
+    <button class="modal-close" data-close-booking-modal aria-label="Close">&times;</button>
+    <h3>Book This Room</h3>
+    <form id="bookingForm" class="modal-form">
+      <input type="hidden" id="bookRoomId">
+      <div class="field">
+        <label for="bookName">Full name</label>
+        <input type="text" id="bookName" required placeholder="Juan Dela Cruz">
+      </div>
+      <div class="field">
+        <label for="bookEmail">Email</label>
+        <input type="email" id="bookEmail" required placeholder="you@example.com">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="bookCheckIn">Check-in</label>
+          <input type="date" id="bookCheckIn" required>
+        </div>
+        <div class="field">
+          <label for="bookCheckOut">Check-out</label>
+          <input type="date" id="bookCheckOut" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="bookGuests">Number of guests</label>
+        <input type="number" id="bookGuests" min="1" value="2" required>
+      </div>
+      <button type="submit" class="btn btn-primary field-submit">Confirm Booking</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="customerModalBackdrop">
+  <div class="modal" id="customerModal">
+    <button class="modal-close" data-close-customer-modal aria-label="Close">&times;</button>
+    <h3>Add Customer</h3>
+    <form id="customerForm" class="modal-form">
+      <div class="field">
+        <label for="custName">Full name</label>
+        <input type="text" id="custName" required>
+      </div>
+      <div class="field">
+        <label for="custEmail">Email</label>
+        <input type="email" id="custEmail" required>
+      </div>
+      <div class="field">
+        <label for="custPhone">Phone</label>
+        <input type="tel" id="custPhone" required>
+      </div>
+      <button type="submit" class="btn btn-primary field-submit">Save Customer</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="js/rooms.js"></script>
+<script src="js/bookings.js"></script>
+<script src="js/recommendations.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
