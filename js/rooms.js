@@ -1,17 +1,3 @@
-/* =========================================================
-   ROOMS.JS
-   Mock data + rendering for Rooms, Room Types, Price Bands,
-   and Room Facilities.
-
-   NOTE ON FUTURE BACKEND:
-   Every "get" function below returns mock data now, but is
-   written so the body can later be swapped for a fetch() call
-   to the C++ API, e.g.:
-     async function getRooms() {
-       return fetch('/api/rooms').then(r => r.json());
-     }
-   ========================================================= */
-
 const IMG = {
   single: "images/room-single.jpg",
   double: "images/room-double.jpg",
