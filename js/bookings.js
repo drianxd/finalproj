@@ -1,15 +1,3 @@
-/* =========================================================
-   BOOKINGS.JS
-   Mock data + rendering for Bookings, Customers, Guests,
-   and Payments.
-
-   Relationships modelled (mock only, for future SQL schema):
-     Customer 1---N Bookings
-     Booking  1---N Guests   (booking.guests = [ids])
-     Booking  1---N Rooms    (booking.rooms  = [ids])
-     Booking  1---N Payments
-   ========================================================= */
-
 function addDays(days) {
   const d = new Date();
   d.setDate(d.getDate() + days);
