@@ -1,9 +1,3 @@
-/* =========================================================
-   APP.JS
-   Navigation, hero slideshow, toasts, modals, availability
-   search, filters/tabs, and app initialisation.
-   ========================================================= */
-
 /* ---------- Toasts ---------- */
 function showToast(message, type = "success") {
   const stack = document.getElementById("toastStack");
