@@ -1,16 +1,3 @@
-/* =========================================================
-   RECOMMENDATIONS.JS
-   Compares guest preferences against mock room data and
-   returns ranked matches with a match percentage.
-   ========================================================= */
-
-/**
- * @param {Object} prefs
- * @param {number} prefs.guests       - number of guests needed
- * @param {number} prefs.budget       - max nightly budget (PHP)
- * @param {string} prefs.roomType     - "Any" or a room type family, e.g. "Deluxe"
- * @param {number[]} prefs.facilityIds - preferred facility ids
- */
 async function recommendRooms(prefs) {
   const rooms = await getRooms();
   const scored = [];
